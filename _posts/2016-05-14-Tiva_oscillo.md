@@ -12,6 +12,7 @@ Mais également l'espoir d'obtenir un produit plus performant.
 
 ### Parce-que...
 ...le TM4C équipant le Launchpad Tiva possède 2 ADC, chacun :
+
 * capable d'acquérir 500ksps.
 * travaillant sur 12 bits.
 * avec une entrée simple ou différentielle.
