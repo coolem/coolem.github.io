@@ -6,9 +6,9 @@ categories: tiva oscilloscope adc timer arm
 lang : fr
 ---
 
-*** Mais pourquoi? Pourquoi???
+### Mais pourquoi? Pourquoi???
 Pourquoi passer du temps à coder son oscilloscope USB alors qu'on peut en trouver pour 30€ sur des sites chinois? Pour le plaisir bien sûr!
 Mais également l'espoir d'avoir un produit plus performant.
 
-*** Parce-que...
+### Parce-que...
 ...le TM4C équipant le Launchpad Tiva possède 2 ADC, chacun capable d'acquérir 500ksps.
