@@ -26,14 +26,18 @@ Je laisse les détails de la plateforme à [Wikipedia](https://en.wikipedia.org/
 Bref, de quoi s'amuser pendant un moment. L'image suivante résume le pinout de la carte :
 ![Launchpad Tiva card pinout]({{ site.url }}/img/LaunchPads-LM4F-TM4C-Pins-Maps-11-32.jpg)
 
-### Programmation
+### Environnements de programmation
 Le TM4C est supporté par [Energia](http://energia.nu), alternative à Arduino. Il s'agit là d'une possibilité intéressante pour débuter l'apprentissage de la plateforme... ou vérifier rapidement que tout fonctionne.
-L'idée ici est d'aller plus loin en utilisant "sérieusement" le SoC. Pour ce faire, 2 instruments sont indispensables :
+L'idée ici est d'aller plus loin en utilisant "sérieusement" le SoC. Ceci est possible via Energia, mais on préfèrera utiliser un IDE digne de ce nom (IAR, Keil, DS-5, etc), ou suivant les goûts un bon éditeur de texte et des Makefile.
 
-* Un éditeur de texte
-* Un compilateur
+Ici nous utiliserons Keil couplé au compilateur ARM (par défaut). Celui-ci est généralement payant, cependant son utilisation avec Keil est gratuite dans la limite d'un binaire de 32kB. Il est possible d'utiliser GCC, qui a l'immense avantage d'être gratuit, produit du code de bonne qualité, mais est moins bien supporté que le compilateur maison d'ARM. Nous verrons l'utilisation de GCC dans un prochain post.
 
-Côté éditeur de texte, le choix est infini ou presque. Côté compilateur, le choix est plus limité, les deux plus utilisés étant GCC et ARM. Les deux nous laissent le choix d'écrire en C ou C++. GCC a l'immense avantage d'être gratuit, produit du code de bonne qualité, mais est moins bien supporté que le compilateur maison d'ARM. Ce dernier est généralement payant, cependant son utilisation est gratuite dans certaines limites.
+Côté développement, 3 étages sont disponibles :
 
-Nous verrons l'utilisation de GCC dans un prochain post, et utiliserons le compilateur ARM aujourd'hui. On trouve celui-ci dans trois IDE : IAR, Keil et ARM DS-5, les deux derniers étant appartenant à ARM.
+* Utiliser directement les registres.
+* Utiliser les intrinsics.
+* Utiliser les pilotes fournis par Texas Instruments (Tivaware).
 
+Utiliser le pilote rend le code plus lisible et facile à développer, mais augmente l'overhead. Personnellement je mixe l'utilisation des pilotes et des registres suivant le cas.
+
+### Un programme Keil avec le compilateur ARM
