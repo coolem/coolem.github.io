@@ -52,6 +52,7 @@ Le schéma précédent présente la gestion des horloges des périphériques com
 ```c
 SysCtlClockSet(SYSCTL_SYSDIV_2_5 | SYSCTL_USE_PLL | SYSCTL_OSC_MAIN | SYSCTL_XTAL_16MHZ);
 ```
+
 L'étape suivante consiste à allumer le Port F du GPIO.
 
 ```c
