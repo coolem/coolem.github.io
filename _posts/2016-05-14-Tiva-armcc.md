@@ -46,6 +46,6 @@ La première étape est de fixer la fréquence du CPU.
 ![TM4C clock system]({{ site.url }}/img/tiva_clock.png)
 Le schéma précédent présente la gestion des horloges des périphériques composant le TM4C. Dans le cas présent, le quartz de 16 MHz est attaché aux deux bornes du **Main OSC**. Nous sélectionnerons ce dernier pour alimenter le **PLL (400 MHz)**. **DIV400**  fournit en entrée du **SYSDIV** 200 MHz ou 400 MHz, suivant la configuration des registres associés. Pour plus de simplicité, la combinaison de ces deux éléments est gérée par les pilotes via la fonction **SysCtlClockSet()**. La fréquence résultante sera la fréquence système (CPU, timers). Au niveau du programme, nous fixeront donc la fréquence système à 80 MHz via :
 
-~~~ C language
+```c
 SysCtlClockSet(SYSCTL_SYSDIV_2_5 | SYSCTL_USE_PLL | SYSCTL_OSC_MAIN | SYSCTL_XTAL_16MHZ);
-~~~
+```
