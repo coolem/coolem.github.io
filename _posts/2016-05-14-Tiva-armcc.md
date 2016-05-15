@@ -60,7 +60,7 @@ Puis à configurer les pins du Port F câblés à la LED en sortie (registre GPI
 ```c
 GPIOPinTypeGPIOOutput(GPIO_PORTF_BASE, GPIO_PIN_3 | GPIO_PIN_2 | GPIO_PIN_1);
 ```
-Enfin, on allume la LED rouge (registre GPIODATA):
+Enfin, on allume la LED rouge (registre GPIODATA).
 ```c
 GPIOPinWrite( GPIO_PORTF_BASE, GPIO_PIN_3 | GPIO_PIN_2 | GPIO_PIN_1, GPIO_PIN_1 );
 ```
