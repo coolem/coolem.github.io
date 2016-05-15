@@ -9,7 +9,7 @@ lang : fr
 ### Le Launchpad Tiva
 Le Launchdad Tiva-C (TM4C123GXL) remplace le Launchpad Stellaris, en y ajoutant principalement le support de l'USB Host.
 ![Launchpad Tiva]({{ site.url }}/img/launchpad-tivac-01.jpg)
-Je laisse les détails de la plateforme à [Wikipedia][1] pour vous citer l'essentiel:
+Je laisse les détails de la plateforme à [Wikipedia](https://en.wikipedia.org/wiki/Tiva-C_LaunchPad) pour vous citer l'essentiel:
 
 * Un SoC TM4C123GH6PM
 * Un core ARM Cortex M4F (F pour unité de calcul des nombres à virgule flottante) cadencé 80 MHz.
@@ -27,7 +27,7 @@ Bref, de quoi s'amuser pendant un moment. L'image suivante résume le pinout de 
 ![Launchpad Tiva card pinout]({{ site.url }}/img/LaunchPads-LM4F-TM4C-Pins-Maps-11-32.jpg)
 
 ### Programmation
-Le TM4C est supporté par [Energia][2], alternative à Arduino. Il s'agit là d'une possibilité intéressante pour débuter l'apprentissage de la plateforme... ou vérifier rapidement que tout fonctionne.
+Le TM4C est supporté par [Energia](http://energia.nu), alternative à Arduino. Il s'agit là d'une possibilité intéressante pour débuter l'apprentissage de la plateforme... ou vérifier rapidement que tout fonctionne.
 L'idée ici est d'aller plus loin en utilisant "sérieusement" le SoC. Pour ce faire, 2 instruments sont indispensables :
 
 * Un éditeur de texte
@@ -37,6 +37,3 @@ Côté éditeur de texte, le choix est infini ou presque. Côté compilateur, le
 
 Nous verrons l'utilisation de GCC dans un prochain post, et utiliserons le compilateur ARM aujourd'hui. On trouve celui-ci dans trois IDE : IAR, Keil et ARM DS-5, les deux derniers étant appartenant à ARM.
 
-
-[1](https://en.wikipedia.org/wiki/Tiva-C_LaunchPad)
-[2](http://energia.nu)
