@@ -52,3 +52,15 @@ Le schéma précédent présente la gestion des horloges des périphériques com
 ```c
 SysCtlClockSet(SYSCTL_SYSDIV_2_5 | SYSCTL_USE_PLL | SYSCTL_OSC_MAIN | SYSCTL_XTAL_16MHZ);
 ```
+L'étape suivante consiste à allumer le Port F du GPIO.
+```c
+SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOF);
+```
+Puis à configurer les pins du Port F câblés à la LED en sortie (registre GPIODIR).
+```c
+GPIOPinTypeGPIOOutput(GPIO_PORTF_BASE, GPIO_PIN_3 | GPIO_PIN_2 | GPIO_PIN_1);
+```
+Enfin, on allume la LED rouge (registre GPIODATA):
+```c
+GPIOPinWrite( GPIO_PORTF_BASE, GPIO_PIN_3 | GPIO_PIN_2 | GPIO_PIN_1, GPIO_PIN_1 );
+```
