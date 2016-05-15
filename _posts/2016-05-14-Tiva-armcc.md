@@ -26,6 +26,7 @@ Je laisse les détails de la plateforme à [Wikipedia](https://en.wikipedia.org/
 Bref, de quoi s'amuser pendant un moment. L'image suivante résume le pinout de la carte :
 ![Launchpad Tiva card pinout]({{ site.url }}/img/LaunchPads-LM4F-TM4C-Pins-Maps-11-32.jpg)
 
+
 ### Environnements de programmation
 Le TM4C est supporté par [Energia](http://energia.nu), alternative à Arduino. Il s'agit là d'une possibilité intéressante pour débuter l'apprentissage de la plateforme... ou vérifier rapidement que tout fonctionne.
 L'idée ici est d'aller plus loin en utilisant "sérieusement" le SoC. Ceci est possible via Energia, mais on préfèrera utiliser un IDE digne de ce nom (IAR, Keil, DS-5, etc), ou suivant les goûts un bon éditeur de texte et des Makefile.
@@ -39,6 +40,8 @@ Côté développement, 3 étages sont disponibles :
 * Utiliser les pilotes fournis par Texas Instruments (Tivaware).
 
 Utiliser le pilote rend le code plus lisible et facile à développer, mais augmente l'overhead. Personnellement je mixe l'utilisation des pilotes et des registres suivant le cas.
+
+
 
 ### Un programme Keil avec le compilateur ARM
 Ce programme sera très simple : Allumer une couleur de la LED RGB.
