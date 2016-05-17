@@ -8,7 +8,9 @@ lang : fr
 
 ### Le Launchpad Tiva
 Le Launchdad Tiva-C (TM4C123GXL) remplace le Launchpad Stellaris, en y ajoutant principalement le support de l'USB Host.
+
 ![Launchpad Tiva]({{ site.url }}/img/launchpad-tivac-01.jpg)
+
 Je laisse les détails de la plateforme à [Wikipedia](https://en.wikipedia.org/wiki/Tiva-C_LaunchPad) pour vous citer l'essentiel:
 
 * Un SoC TM4C123GH6PM
@@ -24,6 +26,7 @@ Je laisse les détails de la plateforme à [Wikipedia](https://en.wikipedia.org/
 * 40 pins sur la carte
 
 Bref, de quoi s'amuser pendant un moment. L'image suivante résume le pinout de la carte :
+
 ![Launchpad Tiva card pinout]({{ site.url }}/img/LaunchPads-LM4F-TM4C-Pins-Maps-11-32.jpg)
 
 
