@@ -9,7 +9,7 @@ lang : fr
 ### Pourquoi???
 Pourquoi passer du temps à coder son oscilloscope USB alors qu'on peut en trouver pour 30$ sur des sites chinois? Pour le plaisir bien sûr! Apprendre aussi, et également l'espoir d'obtenir un produit plus performant.
 
-### Parce-que...
+### Parce que...
 ...contrairement à bien des oscilloscopes pas chers, le TM4C équipant le Launchpad Tiva possède 2 ADC, chacun :
 
 * capable d'acquérir 500ksps.
