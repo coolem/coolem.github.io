@@ -16,7 +16,7 @@ Pourquoi passer du temps à coder son oscilloscope USB alors qu'on peut en trouv
 * travaillant sur 12 bits.
 * avec une entrée simple ou différentielle.
 
-![Launchpad Tiva ADC blocks]({{ site.url }}/img/tiva_adc_blocks.jpg)
+![Launchpad Tiva ADC blocks]({{ site.url }}/img/tiva_adc_blocks.png)
 
 Il nous sera donc possible de lancer une acquisition sur 2 canaux, ou un seul canal en fréquence double (décalage de phase de l'acquisition).
 Qui plus est, le TM4C est basé sur un Cortex M4F cadencé jusqu'à 80 MHz, ce qui laisse une certaine puissance de traitement derrière.
