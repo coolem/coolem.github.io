@@ -21,6 +21,8 @@ Pourquoi passer du temps à coder son oscilloscope USB alors qu'on peut en trouv
 Il nous sera donc possible de lancer une acquisition sur 2 canaux, ou un seul canal en fréquence double (décalage de phase de l'acquisition).
 Qui plus est, le TM4C est basé sur un Cortex M4F cadencé jusqu'à 80 MHz, ce qui laisse une certaine puissance de traitement derrière.
 
+<hr/>
+
 ### Mise en oeuvre de l'ADC
 Nous aurons besoins de la base développée lors de l'[introduction au Launchpad Tiva](http://www.coolem.tech/launchpad/tiva/keil/arm/2016/05/14/Tiva-armcc.html) pour initialiser le SoC. Nous pouvons alors créer une fonction d'initialisation de l'ADC.
 
