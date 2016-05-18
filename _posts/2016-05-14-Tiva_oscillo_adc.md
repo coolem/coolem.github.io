@@ -42,3 +42,18 @@ void InitADC()
   											// Entrée canal 1 (PE2)
 }
 ```
+
+Les 5 premières lignes du code sont relativement simples. Les fonctions**HWREG()** sont utilisées pour écrire directement la valeur souhaitée dans le registre désiré.
+Les deux dernières lignes concernant la configuration de la séquence ADC sont plus compliquées. Pour comprendre cette partie il est nécessaire de visualiser le fonctionnement d'un module ADC :
+
+![Launchpad Tiva ADC blocks]({{ site.url }}/img/tiva_adc_details.png)
+
+Un module ADC est composé de 4 séquenceurs, chacun déclenchabée via des événements provenant du timer, d'un pin, du PWM ou d'un comparateur de tension (via ADC). Les séquenceurs n'ont pas les mêmes propriétés.
+
+----------------------------------
+Séquenceur | Echantillons | FIFO |
+SQ3 | 1 | 1 |
+SQ2 | 4 | 4 |
+SQ1 | 4 | 4 |
+SQ0 | 8 | 8 |
+-------------
