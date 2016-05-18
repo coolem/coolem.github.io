@@ -37,8 +37,8 @@ void InitADC()
 
   ADCSequenceConfigure(ADC0_BASE, 3, ADC_TRIGGER_TIMER, 0);	// Sélection du séquenceur 3, trigger par processeur 
   ADCSequenceStepConfigure(ADC0_BASE, 3, 0, ADC_CTL_IE | ADC_CTL_END | ADC_CTL_CH1);	// Config du séquenceur 3
-  											// Interrupt Enable
-  											// End
+  											// Interruption active à la fin de la séquence
+  											// End : Dernière étape de la séquence 
   											// Entrée canal 1 (PE2)
 }
 ```
