@@ -53,12 +53,10 @@ Les deux dernières lignes concernant la configuration de la séquence ADC sont 
 Un module ADC est composé de 4 séquenceurs, chacun déclenchabée via des événements provenant du timer, d'un pin, du PWM ou d'un comparateur de tension (via ADC). Les séquenceurs n'ont pas les mêmes propriétés.
 
 <div>
-{%
-|Séquenceur | Echantillons | FIFO |
+{%|Séquenceur | Echantillons | FIFO |
 |-----------|--------------|------|
 |SQ3        | 1            |  1   |
 |SQ2 | 4 | 4 |
 |SQ1 | 4 | 4 |
 |SQ0 | 8 | 8 |
-
 %}</div>
