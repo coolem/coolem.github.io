@@ -58,5 +58,5 @@ Un module ADC est composé de 4 séquenceurs, chacun déclenchabée via des év�
 |SQ3        | 1            |  1   |
 |SQ2 | 4 | 4 |
 |SQ1 | 4 | 4 |
-|SQ0 | 8 | 8 |
-%}</div>
+|SQ0 | 8 | 8 |%}
+</div>
