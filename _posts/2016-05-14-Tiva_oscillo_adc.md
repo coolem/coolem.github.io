@@ -68,7 +68,7 @@ Le dernier argument prend en charge la priorité de l'acquisition, de 0 à 3.
 Enfin, la fonction **ADCSequenceStepConfigure()** configure une étape du séquenceur, ici une seule étape (étape 0 en troisième argument) du séquenceur 3. On active la génération d'une interruption à la fin de la séquence (ADC_CTL_IE), la fin de la séquence avec cette étape (ADC_CTL_END), et enfin l'acquisition sur le canal 1 (ADC_CTL_CH1) sur le pin PE2.
 
 
-
+<br/>
 ### Lancement de l'acquisition
 On lance l'acquisition par la fonction **ADCProcessorTrigger()**, dont les paramètres sont l'addresse de l'ADC0 puis le troisième séquenceur.
 
