@@ -69,6 +69,7 @@ Enfin, la fonction **ADCSequenceStepConfigure()** configure une étape du séque
 
 
 <br/>
+
 ### Lancement de l'acquisition
 On lance l'acquisition par la fonction **ADCProcessorTrigger()**, dont les paramètres sont l'addresse de l'ADC0 puis le troisième séquenceur.
 
