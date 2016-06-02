@@ -1,7 +1,7 @@
 ---
 layout: page
 title:  "Un routeur sous ArchLinux et Raspberry Pi 2"
-date:   2016-05-2 13:00:00 +0200
+date:   2016-06-2 13:00:00 +0200
 categories: raspi routeur arch linux wifi
 lang : fr
 ---
