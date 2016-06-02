@@ -62,3 +62,24 @@ Un module ADC est composé de 4 séquenceurs, chacun déclenché via des événe
 Les différences portent sur l'échantillonage de chaque séquenceur, et la taille du buffer FIFO associé. Ainsi le séquenceur 0 échantillonera 8 valeurs par acquisition, contre une seule pour le séquenceur 3. Pour nos besoins, nous utiliserons ici le séquenceur 3.
 
 Ainsi la fonction **ADCSequenceConfigure()** configure le séquenceur, ici le 3 (adresse mémoire de l'ADC0 en premier argument, puis troisième séquenceur).
+Le troisième argument de la fonction concerne le trigger, qui peut être un évènement provenant en autres d'un timer, d'un comparateur, ou ici d'une commande générée par le CPU.
+Le dernier argument prend en charge la priorité de l'acquisition, de 0 à 3.
+
+Enfin, la fonction **ADCSequenceStepConfigure()** configure une étape du séquenceur, ici une seule étape (étape 0 en troisième argument) du séquenceur 3. On active la génération d'une interruption à la fin de la séquence (ADC_CTL_IE), la fin de la séquence avec cette étape (ADC_CTL_END), et enfin l'acquisition sur le canal 1 (ADC_CTL_CH1) sur le pin PE2.
+
+
+
+### Lancement de l'acquisition
+On lance l'acquisition par la fonction **ADCProcessorTrigger()**, dont les paramètres sont l'addresse de l'ADC0 puis le troisième séquenceur.
+
+```
+ADCProcessorTrigger(ADC0_BASE, 3);			// CPU trigger
+
+while(!ADCIntStatus(ADC0_BASE, 3, false)) { }		// Wait until the sample sequence has completed.
+tmp = HWREG(ADC0_BASE + ADC_O_SSFIFO3);			// Read result from register
+```
+
+Puis on attend via polling que l'ADC complète son acquisition via le statut de l'interruption.
+Enfin, on lit le résultat directement du registre via la fonction HWREG();
+
+Cette technique est assez basique et peu efficace. Nous verrons lors s'un prochain article une manière plus élégante de travailler avec l'ADC en utilisant les interruptions.
