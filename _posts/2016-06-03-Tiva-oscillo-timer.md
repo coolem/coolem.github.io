@@ -27,6 +27,27 @@ TimerIntEnable(WTIMER0_BASE, TIMER_TIMB_TIMEOUT);
 TimerControlTrigger(WTIMER0_BASE, TIMER_B, true);
 ```
 
+```c
+;******************************************************************************
+;
+; External declarations for the interrupt handlers used by the application.
+;
+;******************************************************************************
+    EXTERN  SysTickIntHandler
+		EXTERN  WTimer0BIntHandler
+		EXTERN	UDMAIntHandler
+		EXTERN	UDMA_ERRIntHandler
+		
+;******************************************************************************
+;
+; The vector table.
+;
+;******************************************************************************
+    ;DCD     IntDefaultHandler           ; Wide Timer 0 subtimer A
+		DCD		WTimer0BIntHandler
+```
+
+
 ### Interruption
 
 ```c
