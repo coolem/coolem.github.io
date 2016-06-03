@@ -161,3 +161,5 @@ Reste à activer hostapd :
 ```
 systemctl enable hostapd
 ```
+
+Et [réduire la puissance TX](https://bbs.archlinux.org/viewtopic.php?id=198655) pour éviter d'en prendre plein la tête...
