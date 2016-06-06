@@ -72,7 +72,7 @@ On distingue deux parties dans le code suivant :
 Lors de chaque interruption du timer, il faut effacer l'interruption du timer (**TimerIntClear()**) afin de garder le maximum de précision dans la mesure des intervalles.
 On active ensuite la séquence de l'ADC via **ADCSequenceEnable()**, puis l'acquisition **ADCProcessorTrigger()**.
 
-A la finc de l'acquisition, le résultat est enregistré dans le tableau **tmp**, à la case désignée par g_ui32Counter, qui aura préalablement été remis à zéro avant le lancement du timer.
+A la finc de l'acquisition, le résultat est enregistré dans le tableau **tmp**, à la case désignée par **g_ui32Counter**, qui aura préalablement été remis à zéro avant le lancement du timer.
 
 ```c
 void WTimer0BIntHandler(void)
