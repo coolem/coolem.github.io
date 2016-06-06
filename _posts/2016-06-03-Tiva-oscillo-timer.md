@@ -21,7 +21,7 @@ L'acquisition sera lancée lors de la génération d'une interruption par le tim
 
 ### Initialisation
 
-Utiliser le TM4C à 80 MHz, c'est sympa, mais avec un 1 tick par clock on se rend compte qu'un timer 16 bit ne tiendra que 0.8 ms. Dit autrement, la fréquence d'acquisition minimale sera de 1220 Hz. Il nous faut donc utiliser un timer 32 bit, par exemple le **WTIMER0, subtimer B**.
+Utiliser le TM4C à 80 MHz, c'est sympa, mais avec un 1 tick par clock on se rend compte qu'un timer 16 bit ne tiendra que 0.8 ms. Dit autrement, la fréquence d'acquisition minimale sera de 1220 Hz. Il nous faut donc utiliser un timer 32 bit, soit un timer 32 bit complet, ou par exemple le **WTIMER0, subtimer B**.
 
 L'initialisation du timer repose sur le code suivant :
 
@@ -33,6 +33,7 @@ IntMasterEnable();
 TimerIntEnable(WTIMER0_BASE, TIMER_TIMB_TIMEOUT);
 TimerControlTrigger(WTIMER0_BASE, TIMER_B, true);
 ```
+
 Il s'agit donc d'activer le timer via **SysCtlPeripheralEnable()**, le configurer avec **TimerCOnfigure()**.
 On fixe ensuite la limite du timer avec **TimerLoadSet()**, en divisant 80000000 ticks (0x4C4B400) par la durée souhaitée d'un intervalle. Puis on active l'interruption générale, **IntMasterEnable()** ainsi que l'interruption liée au timer en timeout (**TimerIntEnable()**).
 On configure enfin le trigger du timer.
