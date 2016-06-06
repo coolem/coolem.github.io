@@ -21,7 +21,7 @@ L'acquisition sera lancée lors de la génération d'une interruption par le tim
 
 ### Initialisation
 
-Utiliser le TM4C à 80 MHz, c'est sympa, mais avec un 1 tick par clock on se rend compte qu'un timer 16 bit ne tiendra que 0.8 ms. Dit autrement, la fréquence d'acquisition minimale sera de 1220 Hz. Il nous faut donc utiliser un timer 32 bit, par exemple le **WTIMER0, subtimer B** 
+Utiliser le TM4C à 80 MHz, c'est sympa, mais avec un 1 tick par clock on se rend compte qu'un timer 16 bit ne tiendra que 0.8 ms. Dit autrement, la fréquence d'acquisition minimale sera de 1220 Hz. Il nous faut donc utiliser un timer 32 bit, par exemple le **WTIMER0, subtimer B**.
 
 L'initialisation du timer repose sur le code suivant :
 
