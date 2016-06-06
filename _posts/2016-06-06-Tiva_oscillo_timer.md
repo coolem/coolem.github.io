@@ -60,7 +60,7 @@ L'interruption générée par le timer est récupérée par la fonction **WTimer
     DCD	     WTimer0BIntHandler
 ```
 
-
+<br/>
 
 ### Interruption
 
