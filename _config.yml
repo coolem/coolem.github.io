@@ -7,7 +7,7 @@
 
 # Site settings
 title: coolem.tech
-email: your-email@domain.com
+email: brice@coolem.tech
 description: > # this means to ignore newlines until "baseurl:"
   Passioné de microcontroleurs, capteurs, aéromodélisme? Bienvenue sur Coolem!
 baseurl: "" # the subpath of your site, e.g. /blog
