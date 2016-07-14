@@ -6,7 +6,7 @@ categories: tiva oscilloscope adc timer arm
 lang : fr
 ---
 
-### ADC et Timer
+## ADC et Timer
 
 Précédemment, chaque interruption en timeout du timer générait les événements suivants:
 
@@ -24,45 +24,78 @@ Quelle chance nous avons : le TivaC permet tout ça! La marche à suivre serait 
 - Le processus continue jusqu'à ce que le contrôleur DMA aie reçu la quantité de données requises.
 
 
-```c
-void ADC0SS3IntHandler()
-{
-	UARTprintf("\nProut\n");
-	for(int i = 0; i<127; i++)
-	{
-		UARTprintf("%d\n", ( uint16_t ) g_ui16DstBuf[i]);
-	}
-	
-	TimerDisable(WTIMER0_BASE, TIMER_B);
 
-    TimerIntClear(WTIMER0_BASE, TIMER_TIMB_TIMEOUT);
-	g_ui32Counter = 0;
-	a=0;
-	GPIOPinWrite( GPIO_PORTF_BASE, GPIO_PIN_3 | GPIO_PIN_2 | GPIO_PIN_1, 0 );
-	
-}
+## Initialisation des périphériques
+
+### ADC
+
+```c
+SysCtlPeripheralEnable(SYSCTL_PERIPH_ADC0);
+HWREG(SYSCTL_RCGCADC) = 1;
+HWREG(SYSCTL_RCGCGPIO) = 0x10;
+		
+SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOE);
+GPIOPinTypeADC(GPIO_PORTE_BASE, GPIO_PIN_2);
+
+ADCSequenceConfigure(ADC0_BASE, 3, ADC_TRIGGER_TIMER, 0);
+ADCSequenceStepConfigure(ADC0_BASE, 3, 0, ADC_CTL_IE | ADC_CTL_END | ADC_CTL_CH1); 
+```
+
+L'initialisation du périphérique ADC est la même qu'au [premier chapitre](http://localhost:4000/tiva/oscilloscope/adc/arm/2016/05/14/Tiva_oscillo_adc.html).
+
+
+### Timer
+
+```c		
+SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOF);
+GPIOPinTypeGPIOOutput(GPIO_PORTF_BASE, GPIO_PIN_3 | GPIO_PIN_2 | GPIO_PIN_1);
+		
+		
+		
+SysCtlPeripheralEnable(SYSCTL_PERIPH_WTIMER0);
+    //
+    // Configure Timer0B as a 16-bit periodic timer.
+    //
+    TimerConfigure(WTIMER0_BASE, TIMER_CFG_SPLIT_PAIR | TIMER_CFG_B_PERIODIC);
+
+    //
+    // Set the Timer0B load value to 1ms.
+    //
+    TimerLoadSet(WTIMER0_BASE, TIMER_B, 0x4C4B400/100);
+
+    //
+    // Enable processor interrupts.
+    //
+    IntMasterEnable();
+
+    //
+    // Configure the Timer0B interrupt for timer timeout.
+    //
+    TimerIntEnable(WTIMER0_BASE, TIMER_TIMB_TIMEOUT);
+		
+		TimerControlTrigger(WTIMER0_BASE, TIMER_B, true);
+
+```
+
+
+### Contrôleur DMA
+
+
+```c
+SysCtlPeripheralEnable(SYSCTL_PERIPH_UDMA);
+SysCtlPeripheralSleepEnable(SYSCTL_PERIPH_UDMA);
+
+IntEnable(INT_UDMAERR);
+
+uDMAEnable();
+
+uDMAControlBaseSet(ui8ControlTable);
 ```
 
 
 
-```c
-	SysCtlPeripheralEnable(SYSCTL_PERIPH_UDMA);
-    SysCtlPeripheralSleepEnable(SYSCTL_PERIPH_UDMA);
 
-    //
-    // Enable the uDMA controller error interrupt.  This interrupt will occur
-    // if there is a bus error during a transfer.
-    //
-    IntEnable(INT_UDMAERR);
-
-    
-    uDMAEnable();		// Enable the uDMA controller.
-
-    //
-    // Point at the control table to use for channel control structures.
-    //
-    uDMAControlBaseSet(ui8ControlTable);
-```
+## Initialisation du canal du DMA
 
 
 ```c
@@ -90,6 +123,21 @@ void AdcDmaInit()
 ```
 
 
+
+
+## Gestion des interruptions
+
+
+```c
+void ADC0SS3IntHandler()
+{
+	TimerDisable(WTIMER0_BASE, TIMER_B);
+    TimerIntClear(WTIMER0_BASE, TIMER_TIMB_TIMEOUT);
+	g_ui32Counter = 0;
+	a=0;
+	GPIOPinWrite( GPIO_PORTF_BASE, GPIO_PIN_3 | GPIO_PIN_2 | GPIO_PIN_1, 0 );	
+}
+```
 
 
 
